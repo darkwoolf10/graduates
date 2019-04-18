@@ -68,7 +68,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=32)),
                 ('surname', models.CharField(max_length=32)),
                 ('patronymic', models.CharField(max_length=32, null=True)),
-                ('photo', models.FilePathField(null=True, path='/front/assets/image')),
+                ('photo', models.FilePathField(null=True, path='/assets/image')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
                 ('ball', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='crud.Ball')),
