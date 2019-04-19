@@ -1,7 +1,10 @@
+import os
+
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
+from graduates.settings import BASE_DIR
 
 
 class Curator(models.Model):
@@ -61,7 +64,7 @@ class Student(models.Model):
     name = models.CharField(max_length=32)
     surname = models.CharField(max_length=32)
     patronymic = models.CharField(max_length=32, null=True)
-    photo = models.FilePathField(path='/front/assets/image', null=True)
+    photo = models.FilePathField(path=os.path.join(BASE_DIR) + '/static/assets/image', null=True)
     diploma = models.ForeignKey(Diploma, on_delete=models.CASCADE)
     group = models.ForeignKey(Group, on_delete=models.CASCADE)
     ball = models.ForeignKey(Ball, on_delete=models.CASCADE)
