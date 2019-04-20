@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import StudentsList from "@/components/StudentsList"
 import Curators from "@/components/Curators"
+import Groups from "@/components/Groups";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/curators',
       name: 'Curators',
       component: Curators
+    },
+    {
+      path: '/groups',
+      name: 'Groups',
+      component: Groups
     }
   ]
 })

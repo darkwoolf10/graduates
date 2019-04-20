@@ -9,13 +9,15 @@
     >
       <v-toolbar-side-icon></v-toolbar-side-icon>
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>
+        <router-link to="/">Application</router-link>
+      </v-toolbar-title>
 
       <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>search</v-icon>
-      </v-btn>
+<!--      <v-btn icon>-->
+<!--        <v-icon>search</v-icon>-->
+<!--      </v-btn>-->
     </v-toolbar>
 
     <router-view/>
@@ -29,12 +31,20 @@
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
+    font-family: 'Roboto';
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+}
+.router-link-active {
+  text-decoration: none;
+  color: whitesmoke;
 }
 </style>

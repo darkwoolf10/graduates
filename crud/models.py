@@ -10,6 +10,8 @@ from graduates.settings import BASE_DIR
 class Curator(models.Model):
     name = models.CharField(max_length=32)
     surname = models.CharField(max_length=32)
+    description = models.TextField(null=True)
+    photo = models.ImageField(upload_to='static/assets/image', default='static/assets/image/default.png', blank=True)
 
     def __str__(self):
         return self.name + " " + self.surname
@@ -53,7 +55,7 @@ class Faculty(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=32)
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE, related_name='group', default='1')
     curator = models.ForeignKey(Curator, on_delete=models.CASCADE)
 
     def __str__(self):
