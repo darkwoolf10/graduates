@@ -1,13 +1,30 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
+  <v-card
+    flat
+    tile
+  >
+    <v-toolbar
+      color="cyan"
+      dark
+    >
+      <v-toolbar-side-icon></v-toolbar-side-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <v-btn icon>
+        <v-icon>search</v-icon>
+      </v-btn>
+    </v-toolbar>
+
     <router-view/>
-  </div>
+  </v-card>
 </template>
 
 <script>
-export default {
-  name: 'App'
+  export default {
+    name: 'App',
 }
 </script>
 
