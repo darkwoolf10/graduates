@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=”en”>
+ <head>
+ <meta charset=”utf-8">
+ <title>Vue-js | Django | Crud App</title>
+ <meta name=”viewport” content=”width=device-width, initial-scale=1.0">
+ <meta name=”description” content='A simple crud app made with the vue js and django'>
+ <meta name=”keywords” content='vuejs, django, crudapp, restapi'>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h2>Список всіх студентів</h2>
+    <div class="text-light bg-dark">{{ students }}</div>
+        {% for student in students %}
+            {{ student }} <br>
+        {% endfor %}
+    <hr>
+    <h2>Показати тільки відмінників</h2>
+    <div class="text-light bg-dark">{{ graduates.query }}</div>
+        {% for graduate in graduates %}
+            {{ graduate }} <br>
+        {% endfor %}
+    <hr>
+    <h2>Випускники які вірили в світле комуністичне майбутнє</h2>
+    <div class="text-light bg-dark">{{ sovietStudent.query }}</div>
+        {% for student in sovietStudent %}
+            {{ student }} <br>
+        {% endfor %}
+    <hr>
+    <h2>Студенти групи КС-16</h2>
+    <div class="text-light bg-dark">{{ groupStudent.query }}</div>
+        {% for student in groupStudent %}
+            {{ student }} <br>
+        {% endfor %}
+    <hr>
+</body>
+</html>

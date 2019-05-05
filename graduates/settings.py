@@ -9,11 +9,13 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TODAY = datetime.datetime.now()
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -80,6 +82,14 @@ WSGI_APPLICATION = 'graduates.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'graduates',
+        'USER': 'woolf',
+        'PASSWORD': '12345678',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    },
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
@@ -104,8 +114,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
+    'localhost'
 )
 
 
@@ -129,3 +142,8 @@ USE_TZ = True
 STATIC_ROOT = BASE_DIR + "/static/"
 
 STATIC_URL = '/static/'
+
+# MEDIA_ROOT = BASE_DIR + '/static/assets/'
+#
+# MEDIA_URL = '/static/assets/'
+

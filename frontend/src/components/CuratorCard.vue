@@ -13,7 +13,9 @@
     </v-card-title>
 
     <v-card-actions>
-      <v-btn flat color="orange">Показать</v-btn>
+      <router-link :to="{path: '/curator/' + curator.id, params: {curatorId: curator.id}}" style="text-decoration: none">
+          <v-btn flat color="orange">Показать</v-btn>
+        </router-link>
     </v-card-actions>
   </v-card>
 </template>

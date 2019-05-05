@@ -1,6 +1,12 @@
 <template>
   <div class="hello">
     <h1>Hello world</h1>
+    <ul>
+      <li><h2><router-link to="/students">Students</router-link></h2></li>
+      <li><h2><router-link to="/groups">Group</router-link></h2></li>
+      <li><h2><router-link to="/curators">Curators</router-link></h2></li>
+      <li><h2><router-link to="/diplomas">Diplomas</router-link></h2></li>
+    </ul>
   </div>
 </template>
 
@@ -36,7 +42,6 @@ a {
   align-items: center;
   justify-content: center;
 }
-.hello h1 {
-
+.hello h2 {
 }
 </style>

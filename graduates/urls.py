@@ -16,9 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from .routers import router
-from django.conf import settings
-from django.views.static import serve
-from django.conf.urls import url
 
 urlpatterns = [
     path('crud/', include('crud.urls')),
@@ -26,10 +23,3 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        url(r'^static/(?P<path>.*)$', serve, {
-            'document_root': settings.STATIC_ROOT,
-        })
-    ]

@@ -1,23 +1,52 @@
 from rest_framework import serializers
-from .models import Student, Group, Curator, Faculty
-
-
-class StudentSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Student
-        fields = '__all__'
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = '__all__'
+from .models import Student, Group, Curator, Faculty, Diploma, Ball, Work
 
 
 class CuratorSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Curator
+        fields = ('id', 'name', 'surname', 'description', 'photo')
+
+
+class BallSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Ball
+        fields = ('id', 'subject', 'assessment')
+
+
+class WorkSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Work
+        fields = ('id', 'title', 'city')
+
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+    curator = CuratorSerializer()
+
+    class Meta:
+        model = Group
         fields = '__all__'
+
+
+class DiplomaSerializer(serializers.HyperlinkedModelSerializer):
+    curator = CuratorSerializer()
+
+    class Meta:
+        model = Diploma
+        fields = ('id', 'title', 'curator')
+
+
+class StudentSerializer(serializers.HyperlinkedModelSerializer):
+    ball = BallSerializer(many=True)
+    diploma = DiplomaSerializer()
+    group = GroupSerializer()
+    work = WorkSerializer()
+    curator = CuratorSerializer()
+
+    class Meta:
+        model = Student
+        fields = ('id', 'name', 'surname', 'patronymic', 'photo', 'group', 'ball',
+                  'diploma', 'work', 'curator', 'year_end', 'description')
 
 
 class FacultySerializer(serializers.HyperlinkedModelSerializer):
@@ -26,3 +55,6 @@ class FacultySerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Faculty
         fields = '__all__'
+
+
+

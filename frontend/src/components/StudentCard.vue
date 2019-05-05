@@ -8,19 +8,21 @@
       <v-card-title primary-title>
         <div>
           <h3 class="headline mb-0">{{student.name}} {{student.surname}}</h3>
-          <div> </div>
+          <div>{{student.description}}</div>
         </div>
       </v-card-title>
 
-      <v-card-actions>
-        <v-btn flat color="orange">Показать</v-btn>
+      <v-card-actions class="justify-end">
+        <router-link :to="{path: '/student/' + student.id, params: {userId: student.id}}" style="text-decoration: none">
+          <v-btn flat color="orange">Показать</v-btn>
+        </router-link>
       </v-card-actions>
     </v-card>
 </template>
 
 <script>
     export default {
-        name: "StudentsCard",
+        name: "StudentCard",
         props: {
           student: null
         }

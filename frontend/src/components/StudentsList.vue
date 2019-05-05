@@ -1,16 +1,13 @@
 <template>
   <v-layout align-space-around justify-space-around row wrap>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+    <v-flex xs10 sm4 md-3 ma-2 v-for="student in students" :key="student.id">
+      <StudentCard :student="student"/>
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
-    import Card from './Card';
+    import StudentCard from './StudentCard';
 
     export default {
         name: "StudentsList",
@@ -27,7 +24,7 @@
           })
         },
         components: {
-          Card
+          StudentCard
         }
     }
 </script>
