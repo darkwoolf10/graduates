@@ -5,6 +5,7 @@ import Groups from "@/components/Groups";
 import Diplomas from "@/components/Diplomas";
 import Student from "@/views/Student";
 import Curator from "@/views/Curator";
+import CreateGroup from "@/views/CreateGroup";
 
 export const routes = [
     {
@@ -36,6 +37,11 @@ export const routes = [
       path: '/groups',
       name: 'Groups',
       component: Groups
+    },
+    {
+      path: '/create-group',
+      name: 'CreateGroup',
+      component: CreateGroup
     },
     {
       path: '/diplomas',

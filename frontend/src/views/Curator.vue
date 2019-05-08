@@ -1,7 +1,7 @@
 <template>
     <v-container>
        <v-card>
-          <v-card-title><h4>Куратор курсової роботи</h4></v-card-title>
+          <v-card-title><h4>Особисті данні викладача</h4></v-card-title>
           <v-divider></v-divider>
           <v-list dense>
             <v-list-tile>
