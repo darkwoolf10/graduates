@@ -2,6 +2,20 @@
   <v-layout align-space-around justify-space-around row wrap>
     <v-flex xs10 sm3 md-3 ma-2 v-for="curator in curators" :key="curator.id">
       <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
+      <CuratorCard :curator="curator"/>
     </v-flex>
   </v-layout>
 </template>

@@ -1,5 +1,11 @@
 <template>
     <div class="container">
+      <router-link :to="{path: '/create-group'}" style="text-decoration: none">
+        <v-btn fab dark color="indigo">
+          <v-icon dark>add</v-icon>
+        </v-btn>
+      </router-link>
+
       <v-list>
         <v-list-group v-for="item in items" :key="item.name" v-model="item.id" :prepend-icon="item.name" no-action>
           <template v-slot:activator>

@@ -6,12 +6,19 @@
       label="Group"
     ></v-text-field>
     <v-select
-      v-model="select"
+      v-model="selectedFacylty"
       :items="faculty"
-      label="Select faculty"
+      label="Выбрать факультет"
     ></v-select>
-
-    <v-btn >submit</v-btn>
+    <v-select
+      v-model="selectedCurator"
+      :items="curators"
+      label="Выбрать куратора"
+      item-text="name"
+    ></v-select>
+    <p class="text-xs-right">
+      <v-btn large>Создать</v-btn>
+    </p>
   </form>
   </v-container>
 </template>
@@ -22,19 +29,28 @@
         data () {
           return {
             faculty: null,
+            curators: null,
             group: null,
-            select: null
+            selectedFacylty: null,
+            selectedCurator: null
           }
         },
-        mounted() {
+        async mounted() {
           let vm = this;
-          this.axios.get('http://127.0.0.1:8000/api/faculty/')
+          await this.axios.get('http://127.0.0.1:8000/api/faculty/')
             .then((response) => {
-            console.log(response.data);
             response.data.forEach(function(element) {
               vm.faculty = element.name;
             });
-          })
+          });
+          await this.axios.get('http://127.0.0.1:8000/api/curators/')
+            .then((response) => {
+              vm.curators = response.data;
+              // console.log(response.data);
+              // response.data.forEach(function (element) {
+              //   vm.curators = element.name + element.surname;
+              // })
+            })
         }
     }
 </script>
