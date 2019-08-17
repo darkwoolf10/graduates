@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <a href="/crud/curator/create" class="btn btn-success float-right create-curator-btn">Create curator</a>
+  <div class="album py-5 bg-light margin-top-60">
+    <div class="container">
+      <div class="row">
+
+        {% for curator in curators %}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/680e2867-3ff3-4094-8c5e-cf1519db9f19/dbtlaap-e15940d5-c865-4b4e-aa59-75d6f51dcf91.png/v1/fill/w_894,h_894,strp/donald_duck_animal_crossing_style_by_mariag2002_dbtlaap-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwMCIsInBhdGgiOiJcL2ZcLzY4MGUyODY3LTNmZjMtNDA5NC04YzVlLWNmMTUxOWRiOWYxOVwvZGJ0bGFhcC1lMTU5NDBkNS1jODY1LTRiNGUtYWE1OS03NWQ2ZjUxZGNmOTEucG5nIiwid2lkdGgiOiI8PTQwMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.h0gviJWie3a_Mbhp7QcCY3aYnSgSLXDCS2CvxI-5jIo" alt="Card image cap">
+
+              <div class="card-body">
+                <h5 class="card-title">{{ curator.surname }} {{ curator.name }}</h5>
+                <p class="card-text">{{ curator.description }}</p>
+                <div class="d-flex justify-content-between align-items-center float-right">
+                  <div class="btn-group">
+                    <a href="{% url 'create-curator' %}" class="btn btn-sm btn-outline-primary">View</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+    </div>
+{% endblock %}

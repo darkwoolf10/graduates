@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import Student
+from .models import Student, Curator
+from .forms import CuratorsForm
 from django.core import serializers
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseRedirect
 
 
 # Create your views here.
@@ -9,6 +10,22 @@ from django.http import JsonResponse
 
 def index(request):
     return render(request, 'index.html')
+
+
+def curators(request):
+    curators = Curator.objects.all()
+    return render(request, 'curators.html', {'curators': curators})
+
+
+def create_curator(request):
+    if request.method == 'POST':
+        form = CuratorsForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/crud/')
+    else:
+        form = CuratorsForm()
+
+    return render(request, 'create-curator.html', {'form': form})
 
 
 def statistic(request):

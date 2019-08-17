@@ -52,8 +52,14 @@
         },
         methods: {
           createGroup: function () {
+            let curator = this._.find(this.curators, {id: this.curator});
+            let facylty = this._.find(this.facultys, {id: this.facylty});
+
             this.axios.post('http://127.0.0.1:8000/api/groups/', {
-              
+              curator: curator,
+              name: this.group,
+              // faculty: faculty
+
             })
               .then(response => response.data)
               .catch(error => console.log(error));

@@ -8,6 +8,9 @@ import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import Card from './components/Card'
+import _ from 'lodash';
+
+Object.defineProperty(Vue.prototype, '_', { value: _ });
 
 Vue.use(VueAxios, axios);
 Vue.use(Vuetify);

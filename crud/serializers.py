@@ -11,7 +11,7 @@ class CuratorSerializer(serializers.HyperlinkedModelSerializer):
 class BallSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Ball
-        fields = ('id', 'subject', 'assessment')
+        fields = ('id', 'math', 'physical', 'programing')
 
 
 class WorkSerializer(serializers.HyperlinkedModelSerializer):
@@ -37,7 +37,7 @@ class DiplomaSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class StudentSerializer(serializers.HyperlinkedModelSerializer):
-    ball = BallSerializer(many=True)
+    ball = BallSerializer()
     diploma = DiplomaSerializer()
     group = GroupSerializer()
     work = WorkSerializer()
@@ -54,7 +54,7 @@ class FacultySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Faculty
-        fields = '__all__'
+        fields = ('id', 'name', 'group')
 
 
 

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="margin-top-60">
+    <h1>Create curator page</h1>
+    <hr>
+    <form>
+      <div class="form-group">
+        <label for="name">Curator name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter curator name">
+      </div>
+      <div class="form-group">
+        <label for="surname">Curator surname</label>
+        <input type="text" class="form-control" id="surname" placeholder="Enter curator surname">
+      </div>
+      <div class="form-group">
+        <label for="description">Curator description</label>
+        <textarea class="form-control" id="description" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="photo">Curator photo</label>
+        <input type="file" class="form-control-file" id="photo">
+      </div>
+      <button type="submit" class="btn btn-primary float-right">Create</button>
+    </form>
+  </div>
+{% endblock %}
